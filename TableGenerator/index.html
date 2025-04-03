@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Generator||SARSH</title>
+    <link rel="shortcut icon" href="sarsh.png" type="image/x-icon">
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'poppins',sans-serif;
+    }
+    body{
+        height: 100vh;
+        width: 100vw;
+        background-color: black;
+    }
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .out{
+        background-color: aliceblue;
+        height: 520px;
+        width: 300px;
+        border: 2px solid black;
+        border-radius: 7px;
+        padding-top: 20px;
+        margin: 20px;
+        overflow: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        font-family: cursive;
+        flex-direction: column;
+    }
+    #num{
+        height: 40px;
+        margin-top: 30px;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 20px;
+        font-family: cursive;
+    }
+    #btn{
+        margin-top: 10px;
+        font-size: 20px;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: bisque;
+        font-family: cursive;
+        transition-duration: .4s;
+    }
+    #btn:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+    #ou-ul li{
+        list-style: none;
+    }
+    #btn2{
+        margin-top: 10px;
+        font-size: 20px;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: rgb(81, 96, 19);
+        font-family: cursive;
+        transition-duration: .4s;
+    }
+    #btn2:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+        <input type="number" name="num" id="num" placeholder="Enter the Number">
+        <button id="btn" >Get Table</button>
+           <div class="out">
+             <ul id="ou-ul" class="ou-ul-c">
+
+             </ul>
+             <button id="btn2">Clear</button>
+           </div>
+      
+    </div>
+    <script>
+        let btn = document.getElementById('btn')
+        btn.addEventListener('click',table)
+        function table(e) {
+            let num = document.getElementById('num')
+            let inp  = num.value
+            num.value = ""
+            let i = 1;
+            let j = 0;
+            while(i<=10 && j<10){
+                let tab = inp * i ;
+                i++
+                j++
+                let ul = document.getElementById('ou-ul')
+                let list = document.createElement('li')
+                list.textContent = inp + " X " + j + " = " + tab
+                ul.appendChild(list)
+            }
+        }
+        let btn2 = document.getElementById('btn2')
+        btn2.addEventListener('click',clear)
+        function clear(el) {
+            let bt = el.currentTarget
+            let li = bt.previousElementSibling.textContent = " "
+        }
+    </script>
+</body>
+</html>
